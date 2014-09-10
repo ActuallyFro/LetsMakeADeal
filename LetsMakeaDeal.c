@@ -204,6 +204,9 @@ int main(){
 	printf("\n\"Always Change\" Pick Wins Counter=%i \nPercent Wins(AlwaysChangePickWinsCounter/TotalPicks)=(%f)",AlwaysChangeWinCounter,(float)AlwaysChangeWinCounter/(float)TotalPicks);
 	
 	printf("\n\n");
+	char PressEnter;
+	printf("\nPlease Press Enter to Quit!");
+	getch(PressEnter);
 	///////////////////////////////////////////////////////////
 
 	return EXIT_SUCCESS;
