@@ -6,23 +6,11 @@ int main(){
 	int i;
 	char SeedInput[20];
 	int StartingSeed=0;
-	printf("Let's Make a Deal");
-	printf("\n=================");
-	printf("\nFor MATH 525 - Section 10468\nPlease Enter a starting Seed (starting point for random numbers)(any REAL #):");
-	fgets(SeedInput, 20, stdin);
-	for(i=0;i<20;i++){
-		if(SeedInput[i]=='\n'){
-			SeedInput[i]='\0';
-		}
-	}
-	StartingSeed=atoi(SeedInput);
-	srand(StartingSeed);
+
 	int PrizeDoorChoice,UserChoice,AlwaysChangeChoice,ShownLoserDoorChoice;
-	//	int FirstOrSecondLoserDoor,
 	int PrizeDoorCounter1,PrizeDoorCounter2,PrizeDoorCounter3;
 	int UserChoiceCounter1,UserChoiceCounter2,UserChoiceCounter3;
 	int AlwaysChangeChoiceCounter1,AlwaysChangeChoiceCounter2,AlwaysChangeChoiceCounter3;	
-	//int FirstOrSecondLoserDoorCounter1,FirstOrSecondLoserDoorCounter2;
 	int TotalPicks;
 	int AlwaysChangeWinCounter=0;
 	int NeverChangeWinCounter=0;
@@ -40,21 +28,27 @@ int main(){
 	AlwaysChangeChoiceCounter2=0;
 	AlwaysChangeChoiceCounter3=0;
 	
-	//FirstOrSecondLoserDoorCounter1=0;
-	//FirstOrSecondLoserDoorCounter2=0;
-	
 	TotalPicks=0;
 
-	/*
-	printf("\nPrizeDoorChoice=%i,D1=%i,D2=%i,D3=%i",PrizeDoorChoice,PrizeDoorCounter1,PrizeDoorCounter2,PrizeDoorCounter3);
-	printf("\nUserChoice=%i,D1=%i,D2=%i,D3=%i",UserChoice,UserChoiceCounter1,UserChoiceCounter2,UserChoiceCounter3);
-	//printf("\nFirstorSecondLoserDoorChoice=%i,D1=%i,D2=%i",FirstOrSecondLoserDoor,FirstOrSecondLoserDoorCounter1,FirstOrSecondLoserDoorCounter2);
-	printf("\nAlwaysChangeChoice=%i,D1=%i,D2=%i,D3=%i",AlwaysChangeChoice,AlwaysChangeChoiceCounter1,AlwaysChangeChoiceCounter2,AlwaysChangeChoiceCounter3);
-	printf("\nTotalPicks Counter: %i", TotalPicks);
-	*/
-	
 	char UserInput[20];
 	int TotalRuns=0;
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Program Setup
+	printf("Let's Make a Deal");
+	printf("\n=================");
+	printf("\nFor MATH 525 - Section 10468\nPlease Enter a starting Seed (starting point for random numbers)(any REAL #):");
+
+	
+	fgets(SeedInput, 20, stdin);
+	for(i=0;i<20;i++){
+		if(SeedInput[i]=='\n'){
+			SeedInput[i]='\0';
+		}
+	}
+	StartingSeed=atoi(SeedInput);
+	srand(StartingSeed);
+
 	printf("\nPlease Enter a Total Amount of Runs you wish to execute(1-1.4BILLION):");
 	fgets(UserInput, 20, stdin);
 	for(i=0;i<20;i++){
@@ -63,13 +57,15 @@ int main(){
 		}
 	}
 	TotalRuns=atoi(UserInput);
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Main "Game Loop"
 	for(i=0;i<TotalRuns;i++){
 		///////////////////////////////////////////////////////////
 		// Randomizers
 		PrizeDoorChoice=(rand()%3)+1; //1,2,or 3
 		UserChoice=(rand()%3)+1; //1,2,or 3
-		//FirstOrSecondLoserDoor=(rand()%2)+1; //Are we going to *not show* the first or second loser?
 		///////////////////////////////////////////////////////////
 		
 		///////////////////////////////////////////////////////////
@@ -189,14 +185,15 @@ int main(){
 		}
 		///////////////////////////////////////////////////////////		
 	}
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
-	///////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Print Final Tallies
 	printf("\nChoices Summary");
 	printf("\n===============");
 	printf("\nLast PrizeDoorChoice=%i,D1=%i(%f),D2=%i(%f),D3=%i(%f)",PrizeDoorChoice,PrizeDoorCounter1,(float)PrizeDoorCounter1/(float)TotalPicks,PrizeDoorCounter2,(float)PrizeDoorCounter2/(float)TotalPicks,PrizeDoorCounter3,(float)PrizeDoorCounter3/(float)TotalPicks);
 	printf("\nLast UserChoice=%i,D1=%i(%f),D2=%i(%f),D3=%i(%f)",UserChoice,UserChoiceCounter1,(float)UserChoiceCounter1/(float)TotalPicks,UserChoiceCounter2,(float)UserChoiceCounter2/(float)TotalPicks,UserChoiceCounter3,(float)UserChoiceCounter3/(float)TotalPicks);
-	//printf("\nLast FirstorSecondLoserDoorChoice=%i,D1=%i,D2=%i",FirstOrSecondLoserDoor,FirstOrSecondLoserDoorCounter1,FirstOrSecondLoserDoorCounter2);
+	
 	printf("\nLast AlwaysChangeChoice=%i,D1=%i(%f),D2=%i(%f),D3=%i(%f)",AlwaysChangeChoice,AlwaysChangeChoiceCounter1,(float)AlwaysChangeChoiceCounter1/(float)TotalPicks,AlwaysChangeChoiceCounter2,(float)AlwaysChangeChoiceCounter2/(float)TotalPicks,AlwaysChangeChoiceCounter3,(float)AlwaysChangeChoiceCounter3/(float)TotalPicks);
 	printf("\nTotalPicks Counter: %i", TotalPicks);
 	
@@ -210,7 +207,6 @@ int main(){
 	char PressEnter;
 	printf("\nPlease Press Enter to Quit!");
 	getch(PressEnter);
-	///////////////////////////////////////////////////////////
-
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	return EXIT_SUCCESS;
 }
