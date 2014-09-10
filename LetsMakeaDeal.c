@@ -6,7 +6,9 @@ int main(){
 	int i;
 	char SeedInput[20];
 	int StartingSeed=0;
-	printf("For MATH 525 - Section 10468\nPlease Enter a starting Seed (starting point for random numbers):");
+	printf("Let's Make a Deal");
+	printf("\n=================");
+	printf("\nFor MATH 525 - Section 10468\nPlease Enter a starting Seed (starting point for random numbers)(any REAL #):");
 	fgets(SeedInput, 20, stdin);
 	for(i=0;i<20;i++){
 		if(SeedInput[i]=='\n'){
@@ -53,7 +55,7 @@ int main(){
 	
 	char UserInput[20];
 	int TotalRuns=0;
-	printf("\n\nPlease Enter a Total Amount of Runs you wish to execute:");
+	printf("\nPlease Enter a Total Amount of Runs you wish to execute(1-1.4BILLION):");
 	fgets(UserInput, 20, stdin);
 	for(i=0;i<20;i++){
 		if(UserInput[i]=='\n'){
@@ -200,8 +202,9 @@ int main(){
 	
 	printf("\n\nWinning Summary");
 	printf("\n===============");
-	printf("\nUser Pick (Never Change) Wins Counter=%i \nPercent Wins(UserPicksWinsCounter/TotalPicks)=(%f)",NeverChangeWinCounter,(float)NeverChangeWinCounter/(float)TotalPicks);
-	printf("\n\"Always Change\" Pick Wins Counter=%i \nPercent Wins(AlwaysChangePickWinsCounter/TotalPicks)=(%f)",AlwaysChangeWinCounter,(float)AlwaysChangeWinCounter/(float)TotalPicks);
+	printf("\nUser Choice Never Changes: Wins Counter=%i \nPercent Wins(UserPicksWinsCounter/TotalPicks)=(%f)",NeverChangeWinCounter,(float)NeverChangeWinCounter/(float)TotalPicks);
+	
+	printf("\n\n\"Always Change\" from User Choice: Wins Counter=%i \nPercent Wins(AlwaysChangePickWinsCounter/TotalPicks)=(%f)",AlwaysChangeWinCounter,(float)AlwaysChangeWinCounter/(float)TotalPicks);
 	
 	printf("\n\n");
 	char PressEnter;
